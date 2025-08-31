@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: add repo name
+        run: echo '{"name":"'${{ github.event.repository.name }}'"}' > vercel.json
+
       - name: Checkout code
         uses: actions/checkout@v4
         
