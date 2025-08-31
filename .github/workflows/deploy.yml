@@ -27,6 +27,8 @@ jobs:
       - name: Deploy to Vercel
         run: |
           echo "🚀 Deploying to Vercel..."
+          npx vercel link --yes --token ${{ secrets.VERCEL_TOKEN }}
+
           for i in {1..3}; do
             npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --yes && break
             echo "Attempt $i failed, retrying in 10 seconds..."
